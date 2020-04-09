@@ -2,30 +2,30 @@
 
 . "./__settings"
 
-VBoxManage snapshot $DNN_VM_NAME restorecurrent
+VBoxManage snapshot $VM_NAME restorecurrent
 
 if [ ! $? = 0 ]; then
-    $message = "Error restoring the $DNN_VM_NAME VM snapshot!"
+    $message = "Error restoring the $VM_NAME VM snapshot!"
     echo $message
     notify-send -u critical $message
     exit 1
 fi
 
-VBoxManage startvm $DNN_VM_NAME --type headless
+VBoxManage startvm $VM_NAME --type headless
 
 if [ ! $? = 0 ]; then
-    $message = "Error starting the $DNN_VM_NAME VM!"
+    $message = "Error starting the $VM_NAME VM!"
     echo $message
     notify-send -u critical $message
     exit 1
 fi
 
-echo "Mounting $DNN_SHARE_MOUNT_PATH share..."
+echo "Mounting $SHARE_MOUNT_PATH share..."
 
 # TODO: Check for credentials file
 sleep 5
-mount $DNN_SHARE_MOUNT_PATH
+mount $SHARE_MOUNT_PATH
 
 echo "Accessing mounted share..."
 
-xdg-open $DNN_SHARE_MOUNT_PATH &
+xdg-open $SHARE_MOUNT_PATH &

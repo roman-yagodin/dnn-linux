@@ -2,6 +2,6 @@
 
 # IMPORTANT: Make your changes and rename this file to just "__settings"!
 
-DNN_VM_NAME="vDNN"
-DNN_VM_SNAPSHOT_PREFIX="Snapshot "
-DNN_SHARE_MOUNT_PATH=$HOME/mnt/dnn
+VM_NAME="MyVM"
+VM_SNAPSHOT_PREFIX="Snapshot "
+SHARE_MOUNT_PATH=$HOME/mnt/share-name

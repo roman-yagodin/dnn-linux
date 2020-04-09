@@ -2,18 +2,18 @@
 
 . "./__settings"
 
-echo "Unmounting $DNN_SHARE_MOUNT_PATH share..."
+echo "Unmounting $SHARE_MOUNT_PATH share..."
 
-umount $DNN_SHARE_MOUNT_PATH
+umount $SHARE_MOUNT_PATH
 
-echo "Mounting $DNN_SHARE_MOUNT_PATH share..."
+echo "Mounting $SHARE_MOUNT_PATH share..."
 
 # mount share with /etc/fstab entry
 sleep 5
-mount $DNN_SHARE_MOUNT_PATH
+mount $SHARE_MOUNT_PATH
 
 echo "Accessing mounted share..."
 
-xdg-open $DNN_SHARE_MOUNT_PATH &
+xdg-open $SHARE_MOUNT_PATH &
 
 echo "Done."
