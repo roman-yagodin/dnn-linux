@@ -1,0 +1,27 @@
+#!/bin/sh
+
+. __settings
+
+echo "Unmounting $DNN_SHARE_MOUNT_PATH share..."
+
+umount $DNN_SHARE_MOUNT_PATH
+
+echo "Taking snapshot of VM state..."
+
+VBoxManage snapshot $DNN_VM_NAME take $DNN_VM_SNAPSHOT_PREFIX --uniquename Number
+
+if [ ! $? = 0 ]; then
+    $message = "Error taking the $DNN_VM_NAME VM snapshot!"
+    echo $message
+    notify-send -u critical $message
+    exit 1
+fi
+
+VBoxManage controlvm $DNN_VM_NAME poweroff
+
+if [ ! $? = 0 ]; then
+    $message = "Error stopping the $DNN_VM_NAME VM!"
+    echo $message
+    notify-send -u critical $message
+    exit 1
+fi

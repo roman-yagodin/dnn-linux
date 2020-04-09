@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# IMPORTANT: Make your changes and rename the "__settings.template" file to the just "__settings"!
+
+DNN_VM_NAME="vDNN"
+DNN_VM_SNAPSHOT_PREFIX="Snapshot "
+DNN_SHARE_MOUNT_PATH=$HOME/mnt/dnn

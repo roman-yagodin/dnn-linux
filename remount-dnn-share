@@ -1,0 +1,19 @@
+#!/bin/sh
+
+. __settings
+
+echo "Unmounting $DNN_SHARE_MOUNT_PATH share..."
+
+umount $DNN_SHARE_MOUNT_PATH
+
+echo "Mounting $DNN_SHARE_MOUNT_PATH share..."
+
+# mount share with /etc/fstab entry
+sleep 5
+mount $DNN_SHARE_MOUNT_PATH
+
+echo "Accessing mounted share..."
+
+xgd-open $DNN_SHARE_MOUNT_PATH &
+
+echo "Done."
