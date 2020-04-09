@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# IMPORTANT: Make your changes and rename the "__settings.template" file to the just "__settings"!
+# IMPORTANT: Make your changes and rename this file to just "__settings"!
 
 DNN_VM_NAME="vDNN"
 DNN_VM_SNAPSHOT_PREFIX="Snapshot "
