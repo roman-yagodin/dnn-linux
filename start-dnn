@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. __settings
+. "./__settings"
 
 VBoxManage snapshot $DNN_VM_NAME restorecurrent
 
@@ -28,4 +28,4 @@ mount $DNN_SHARE_MOUNT_PATH
 
 echo "Accessing mounted share..."
 
-xgd-open $DNN_SHARE_MOUNT_PATH &
+xdg-open $DNN_SHARE_MOUNT_PATH &

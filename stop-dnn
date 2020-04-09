@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. __settings
+. "./__settings"
 
 echo "Unmounting $DNN_SHARE_MOUNT_PATH share..."
 

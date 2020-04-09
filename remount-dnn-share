@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. __settings
+. "./__settings"
 
 echo "Unmounting $DNN_SHARE_MOUNT_PATH share..."
 
@@ -14,6 +14,6 @@ mount $DNN_SHARE_MOUNT_PATH
 
 echo "Accessing mounted share..."
 
-xgd-open $DNN_SHARE_MOUNT_PATH &
+xdg-open $DNN_SHARE_MOUNT_PATH &
 
 echo "Done."
