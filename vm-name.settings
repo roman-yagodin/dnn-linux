@@ -1,5 +1,5 @@
 #!/bin/sh
 
 VM_NAME="MyVM"
-VM_SNAPSHOT_PREFIX="Snapshot "
+VM_SNAPSHOT_PREFIX="Snapshot"
 SHARE_MOUNT_PATH=$HOME/mnt/share-name

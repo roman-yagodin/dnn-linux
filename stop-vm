@@ -10,7 +10,7 @@ umount $SHARE_MOUNT_PATH
 
 echo "Taking snapshot of VM state..."
 
-VBoxManage snapshot $VM_NAME take $VM_SNAPSHOT_PREFIX --uniquename Number
+VBoxManage snapshot $VM_NAME take "$VM_SNAPSHOT_PREFIX " --uniquename Number
 
 if [ ! $? = 0 ]; then
     $message = "Error taking the $VM_NAME VM snapshot!"
