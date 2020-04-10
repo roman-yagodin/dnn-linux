@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd $(dirname $0)
+
 . "./__settings"
 
 VBoxManage snapshot $VM_NAME restorecurrent

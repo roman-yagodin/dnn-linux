@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd $(dirname $0)
+
 . "./__settings"
 
 echo "Unmounting $SHARE_MOUNT_PATH share..."
