@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# IMPORTANT: Make your changes and rename this file to just "__settings"!
-
 VM_NAME="MyVM"
 VM_SNAPSHOT_PREFIX="Snapshot "
 SHARE_MOUNT_PATH=$HOME/mnt/share-name

@@ -2,7 +2,7 @@
 
 cd $(dirname $0)
 
-. "./__settings"
+. "$1"
 
 echo "Unmounting $SHARE_MOUNT_PATH share..."
 

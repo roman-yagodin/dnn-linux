@@ -2,7 +2,9 @@
 
 cd $(dirname $0)
 
-. "./__settings"
+# TODO: Check arguments
+
+. "$1"
 
 VBoxManage snapshot $VM_NAME restorecurrent
 
@@ -25,6 +27,8 @@ fi
 echo "Mounting $SHARE_MOUNT_PATH share..."
 
 # TODO: Check for credentials file
+
+# TODO: Convert to function
 sleep 5
 mount $SHARE_MOUNT_PATH
 

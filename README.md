@@ -2,13 +2,7 @@
 
 VM control scripts for [cross-platform web] development environment
 
-## Initial setup
-
-- Install (TODO)
-- Make your changes and rename the `__settings.template` file to just `__settings`
-- Configure the mount point for the "network" share (see details in the **Share mounting** section below)
-
-## General use
+## General notes
 
 The `start-vm` script will start your VM by restoring its state from current (latest) snapshot and mounts its share to the local folder.
 Generally this means that you will have it up and running in seconds.
@@ -22,6 +16,25 @@ The `remount-share` script should be used for troubleshooting - if by any reason
 The scripts are using `notify-send` to provide desktop notifications about errors.
 
 From time to time you'll need to manually delete old VM snapshots.
+
+## Install and initial setup
+
+1. Copy or clone scripts (entire `vm-scripts` directory) to the preferred location
+2. Create a settings file for your VM using `vm-name.settings` as a template
+3. Configure the mount point for the "network" share (see details in the **Share mounting** section below)
+
+### Script invocation example
+
+Install location: `/home/user/bin`
+Settings file: `/home/user/bin/vm-scripts/__myvm.settings` (files with `__` prefix are "gitignored")
+
+```Shell
+# raw console
+/home/user/bin/vm-scripts/start-vm ./__myvm.settings
+
+# graphical terminal
+x-terminal-emulator -e /home/user/bin/vm-scripts/start-vm ./__myvm.settings
+```
 
 ## Share mounting
 
