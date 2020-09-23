@@ -1,12 +1,8 @@
 #!/bin/sh
 
-cd $(dirname $0)
+# TODO: Check for arguments
 
-. "$1"
-
-echo "Unmounting $SHARE_MOUNT_PATH share..."
-
-umount $SHARE_MOUNT_PATH
+SHARE_MOUNT_PATH="$1"
 
 echo "Mounting $SHARE_MOUNT_PATH share..."
 

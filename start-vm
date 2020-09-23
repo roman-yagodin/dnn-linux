@@ -1,10 +1,8 @@
 #!/bin/sh
 
-cd $(dirname $0)
+# TODO: Check for arguments
 
-# TODO: Check arguments
-
-. "$1"
+VM_NAME=$1
 
 VBoxManage snapshot $VM_NAME restorecurrent
 
@@ -23,15 +21,3 @@ if [ ! $? = 0 ]; then
     notify-send -u critical $message
     exit 1
 fi
-
-echo "Mounting $SHARE_MOUNT_PATH share..."
-
-# TODO: Check for credentials file
-
-# TODO: Convert to function
-sleep 5
-mount $SHARE_MOUNT_PATH
-
-echo "Accessing mounted share..."
-
-xdg-open $SHARE_MOUNT_PATH &

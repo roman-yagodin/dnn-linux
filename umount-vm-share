@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# TODO: Check for arguments
+
+SHARE_MOUNT_PATH="$1"
+
+echo "Unmounting $SHARE_MOUNT_PATH share..."
+
+umount $SHARE_MOUNT_PATH
+
+echo "Done."

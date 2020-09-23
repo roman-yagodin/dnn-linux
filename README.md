@@ -11,29 +11,41 @@ Now you can do your coding session - by editing files in the share directly or b
 
 After that you would want to invoke the `stop-vm` script - it will unmount the share and shutdown VM, but take the snapshot of its current state first.
 
-The `remount-share` script should be used for troubleshooting - if by any reason the mounted share become irresponsible.
-
 The scripts are using `notify-send` to provide desktop notifications about errors.
 
 From time to time you'll need to manually delete old VM snapshots.
 
+Another pair of scripts is `mount-vm-share` and `umount-vm-share` allows you to mount/umount specific share for running VM.
+
 ## Install and initial setup
 
 1. Copy or clone scripts (entire `vm-scripts` directory) to the preferred location
-2. Create a settings file for your VM using `vm-name.settings` as a template
+2. Optionally add scripts to the `$PATH`
 3. Configure the mount point for the "network" share (see details in the **Share mounting** section below)
 
-### Script invocation example
-
-Install location: `/home/user/bin`
-Settings file: `/home/user/bin/vm-scripts/__myvm.settings` (files with `__` prefix are "gitignored")
+## Script invocation examples
 
 ```Shell
-# raw console
-/home/user/bin/vm-scripts/start-vm ./__myvm.settings
+# start VM
+start-vm MyVM
 
-# graphical terminal
-x-terminal-emulator -e /home/user/bin/vm-scripts/start-vm ./__myvm.settings
+# start VM from snapshot, mount share
+start-vm MyVM && mount-vm-share /home/user/mnt/MyVMShare1
+
+# umount share, stop VM taking snapshot
+umount-vm-share /home/user/mnt/MyVMShare1 && stop-vm MyVM Snapshot
+
+# remount share
+umount-vm-share /home/user/mnt/MyVMShare1 && mount-vm-share /home/user/mnt/MyVMShare1
+```
+
+## Invocations via Cinnamon & MyLauncher applet
+
+```
+[MS] -----------------
+Start MyVM=x-terminal-emulator -e "start-vm MyVM && mount-vm-share /home/user/mnt/MyVMShare1"
+Stop MyVM=x-terminal-emulator -e "umount-vm-share /home/user/mnt/MyVMShare1 && stop-vm MyVM Snapshot"
+Remount MyVM Share=x-terminal-emulator -e "umount-vm-share /home/user/mnt/MyVMShare1 && mount-vm-share /home/user/mnt/MyVMShare1"
 ```
 
 ## Share mounting

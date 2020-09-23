@@ -1,12 +1,9 @@
 #!/bin/sh
 
-cd $(dirname $0)
+# TODO: Check for arguments
 
-. "$1"
-
-echo "Unmounting $SHARE_MOUNT_PATH share..."
-
-umount $SHARE_MOUNT_PATH
+VM_NAME=$1
+VM_SNAPSHOT_PREFIX=$2
 
 echo "Taking snapshot of VM state..."
 
